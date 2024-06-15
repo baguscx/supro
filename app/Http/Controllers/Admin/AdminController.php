@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function dashboard(){
-        return 'saye admin';
+        return view("admin.index");
     }
+
+    public function createUser(){
+        return view("admin.users.create");
+    }
+
+    public function listUser(){
+        return view("admin.users.list");
+    }
+
 }

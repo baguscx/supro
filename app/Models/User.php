@@ -46,4 +46,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function detail_users(){
+        return $this->hasOne('App\Models\DetailUser', 'users_id');
+    }
+
+    public function surat_proposal(){
+        return $this->hasMany('App\Models\SuratProposal', 'users_id');
+    }
 }
