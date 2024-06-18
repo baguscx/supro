@@ -26,7 +26,7 @@ woiasu
 
         <div class="col-md-12">
                 <div class="form-floating form-floating-outline">
-                    <textarea class="form-control h-px-100" name="implemantasi_inovasi" placeholder="Implementasi Inovasi" disabled>{{$proposal->implemantasi_inovasi ?? ''}}</textarea>
+                    <textarea class="form-control h-px-100" name="implementasi_inovasi" placeholder="Implementasi Inovasi" disabled>{{$proposal->implementasi_inovasi ?? ''}}</textarea>
                     <label class="ps-4">Implementasi Inovasi</label>
                 </div>
         </div>
@@ -60,7 +60,7 @@ woiasu
         </div>
     </div>
 @elseif($proposal->status == 'draft')
-ciok
+
     <div {{$attributes}} style="display: none;" class="row mt-2 gy-4">
         <div class="col-md-12">
             <small>Substansi Proposal : <strong>Kelompok UMUM</strong></small>
@@ -86,7 +86,7 @@ ciok
 
         <div class="col-md-12">
                 <div class="form-floating form-floating-outline">
-                    <textarea class="form-control h-px-100" name="implemantasi_inovasi" placeholder="Implementasi Inovasi">{{$proposal->implemantasi_inovasi ?? ''}}</textarea>
+                    <textarea class="form-control h-px-100" name="implementasi_inovasi" placeholder="Implementasi Inovasi">{{$proposal->implementasi_inovasi ?? ''}}</textarea>
                     <label class="ps-4">Implementasi Inovasi</label>
                 </div>
         </div>

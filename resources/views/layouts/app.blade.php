@@ -16,7 +16,13 @@
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
         <!-- Menu -->
-        <x-sidebar/>
+        @if (Auth::user()->hasRole('admin'))
+            <x-sidebar.admin/>
+        @elseif (Auth::user()->hasRole('staff'))
+            <x-sidebar.staff/>
+        @elseif (Auth::user()->hasRole('user'))
+            <x-sidebar.user/>
+        @endif
         <!-- / Menu -->
 
         <!-- Layout container -->

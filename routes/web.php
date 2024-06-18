@@ -22,6 +22,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/proposal/show/{id}', [StaffController::class, 'show'])->name('show.proposal');
     Route::get('/cetak/{id}', [SuratController::class, 'cetak'])->name('cetak.surat');
     Route::get('/sp_inovator/{id}/download', [SuratController::class, 'sp_inovator'])->name('sp_inovator');
     Route::get('/sp_replikasi/{id}/download', [SuratController::class, 'sp_replikasi'])->name('sp_replikasi');
@@ -34,9 +35,9 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/user', [UserController::class, 'dashboard'])->name('user.dashboard');
     Route::get('/proposal/create', [UserController::class, 'create'])->name('create.proposal');
     Route::post('/proposal/create', [UserController::class, 'store'])->name('store.proposal');
-    Route::get('/proposal/{id}/show', [UserController::class, 'show'])->name('show.proposal');
+    // Route::get('/proposal/{id}/show', [UserController::class, 'show'])->name('show.proposal');
     Route::get('/proposal/draft', [UserController::class, 'draft'])->name('draft.proposal');
-    Route::get('/proposal/list', [UserController::class, 'list'])->name('list.proposal');
+    Route::get('/proposal/sent', [UserController::class, 'sent'])->name('sent.proposal');
     Route::delete('/proposal/{id}/delete', [UserController::class, 'destroy'])->name('delete.proposal');
     Route::get('/proposal/{id}/edit', [UserController::class, 'edit'])->name('edit.proposal');
     Route::put('/proposal/{id}/edit', [UserController::class, 'update'])->name('update.proposal');
@@ -48,6 +49,10 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 
 Route::middleware(['auth', 'role:staff'])->group(function () {
     Route::get('/staff', [StaffController::class, 'dashboard'])->name('staff.dashboard');
+    Route::get('/proposal/list', [StaffController::class, 'list'])->name('list.proposal');
+    Route::get('/proposal/history', [StaffController::class, 'history'])->name('history.proposal');
+    Route::post('/proposal/tolak/{id}', [StaffController::class, 'tolak'])->name('tolak.proposal');
+    Route::post('/proposal/ttd/{id}', [StaffController::class, 'ttd'])->name('ttd.proposal');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {

@@ -42,7 +42,7 @@ class UserController extends Controller
             'strategi_keberlanjutan_khusus' => $request->strategi_keberlanjutan_khusus,
             'latar_belakang' => $request->latar_belakang,
             'kebaruan' => $request->kebaruan,
-            'implementasi_inovasi' => $request->implemantasi_inovasi,
+            'implementasi_inovasi' => $request->implementasi_inovasi,
             'signifikansi' => $request->signifikansi,
             'deskripsi_awal' => $request->deskripsi_awal,
             'pembaruan' => $request->pembaruan,
@@ -56,9 +56,9 @@ class UserController extends Controller
         return redirect()->route('user.dashboard');
     }
 
-    public function list(){
-        $proposals = SuratProposal::where('users_id', Auth::user()->id)->whereIn('status', ['pending', 'completed'])->get();
-        return view('user.list', compact('proposals'));
+    public function sent(){
+        $proposals = SuratProposal::where('users_id', Auth::user()->id)->whereIn('status', ['pending', 'rejected', 'completed'])->get();
+        return view('user.sent', compact('proposals'));
     }
 
     public function draft(){
@@ -83,7 +83,7 @@ class UserController extends Controller
         $proposal = SuratProposal::find($id);
         if($proposal->status == 'completed' || $proposal->status == 'pending'){
             if($proposal->users_id != Auth::user()->id){
-                return abort(403);
+                return view('user.edit', compact('proposal'));
             } else {
                 return view('user.edit', compact('proposal'));
             }
@@ -135,7 +135,7 @@ class UserController extends Controller
             'strategi_keberlanjutan_khusus' => $request->strategi_keberlanjutan_khusus,
             'latar_belakang' => $request->latar_belakang,
             'kebaruan' => $request->kebaruan,
-            'implementasi_inovasi' => $request->implemantasi_inovasi,
+            'implementasi_inovasi' => $request->implementasi_inovasi,
             'signifikansi' => $request->signifikansi,
             'deskripsi_awal' => $request->deskripsi_awal,
             'pembaruan' => $request->pembaruan,
@@ -145,7 +145,7 @@ class UserController extends Controller
             'status' => 'draft',
         ]);
 
-        return redirect()->route('list.proposal');
+        return redirect()->route('draft.proposal');
     }
 
     public function send(Request $request, $id){
@@ -155,7 +155,7 @@ class UserController extends Controller
             'status' => 'pending',
         ]);
 
-        return redirect()->route('list.proposal');
+        return redirect()->route('sent.proposal');
     }
 
     public function destroy($id){
@@ -178,7 +178,7 @@ class UserController extends Controller
         }
 
         $proposal->delete();
-        return redirect()->route('list.proposal');
+        return redirect()->route('sent.proposal');
     }
 
     public function dinovator($id){

@@ -1,4 +1,7 @@
 <x-app-layout>
+    <style>
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+    </style>
     <x-slot name="title">
         Dashboard
     </x-slot>
@@ -41,28 +44,35 @@
                                         @elseif($proposal->status == 'completed')
                                             <span class="badge rounded-pill bg-label-success me-1">{{$proposal->status}}</span>
                                         @endif
-                                    </>
-                                    <td>
-                                        <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                            <i class="mdi mdi-dots-vertical"></i>
+                                    </td>
+                                    <td style="display: flex; gap:5px;">
+                                    <form action="{{route('send.proposal', $proposal->id)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="hidden" name="id" value="{{$proposal->id}}">
+                                        <button onclick="return confirm('Anda yakin ingin mengirim proposal ini?');"" type="submit" style="border: none; margin-block: 10px; cursor: pointer; border-radius: 5px; display: flex; align-items: center; justify-content: center; background-color: #2196F3; color: white;"
+                                                onmouseover="this.style.backgroundColor='#1E88E5';"
+                                                onmouseout="this.style.backgroundColor='#2196F3';">
+                                            <a style="text-decoration: none; color: #fff;" href=""><span class="fas fa-paper-plane" style="width: 20px"></span> </a>
                                         </button>
-                                        <div class="dropdown-menu">
-                                            <form action="{{route('send.proposal', $proposal->id)}}" method="post">
-                                                @csrf
-                                                @method('PUT')
-                                                <input type="hidden" name="id" value="{{$proposal->id}}">
-                                                <button type="submit" class="dropdown-item waves-effect" href="javascript:void(0);"><i class="mdi mdi-eye-outline me-1"></i> Kirim</button>
-                                            </form>
-                                            <a class="dropdown-item waves-effect" href="{{route('edit.proposal', $proposal->id)}}"><i class="mdi mdi-pencil-outline me-1"></i> Edit</a>
-                                            <form action="{{route('delete.proposal', $proposal->id)}}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <input type="hidden" name="id" value="{{$proposal->id}}">
-                                                <button type="submit" class="dropdown-item waves-effect" href="javascript:void(0);" onclick="return confirm('apa anda yakin?')"><i class="mdi mdi-trash-can-outline me-1"></i> Delete</button>
-                                            </form>
-                                        </div>
-                                        </div>
+                                    </form>
+
+                                        <button style="border: none; margin-block: 10px; cursor: pointer; border-radius: 5px; display: flex; align-items: center; justify-content: center; background-color: #4CAF50; color: white;"
+                                                onmouseover="this.style.backgroundColor='#45a049';"
+                                                onmouseout="this.style.backgroundColor='#4CAF50';">
+                                            <a style="text-decoration: none; color: #fff;" href="{{route('edit.proposal', $proposal->id)}}"><span class="fas fa-edit" style="width: 20px"></span> </a>
+                                        </button>
+
+                                    <form action="{{route('delete.proposal', $proposal->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="hidden" name="id" value="{{$proposal->id}}">
+                                        <button onclick="return confirm('Anda yakin ingin menghapus proposal ini?');" style="border: none; margin-block: 10px; cursor: pointer; border-radius: 5px; display: flex; align-items: center; justify-content: center; background-color: #f44336; color: white;"
+                                                onmouseover="this.style.backgroundColor='#e53935';"
+                                                onmouseout="this.style.backgroundColor='#f44336';">
+                                            <a style="text-decoration: none; color: #fff;" href=""><span class="fas fa-trash" style="width: 20px"></span> </a>
+                                        </button>
+                                    </form>
                                     </td>
                                 </tr>
                                 @endforeach
