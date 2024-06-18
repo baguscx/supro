@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -52,7 +53,7 @@ class UserController extends Controller
             'status' => 'draft',
         ]);
 
-
+        Alert::success('Sukses!', 'Proposal Berhasil Dibuat');
         return redirect()->route('user.dashboard');
     }
 
@@ -145,6 +146,7 @@ class UserController extends Controller
             'status' => 'draft',
         ]);
 
+        Alert::success('Sukses!', 'Proposal Berhasil Diedit');
         return redirect()->route('draft.proposal');
     }
 
@@ -155,6 +157,7 @@ class UserController extends Controller
             'status' => 'pending',
         ]);
 
+        Alert::success('Sukses!', 'Proposal Berhasil DiKirim');
         return redirect()->route('sent.proposal');
     }
 
@@ -178,6 +181,8 @@ class UserController extends Controller
         }
 
         $proposal->delete();
+
+        Alert::success('Sukses!', 'Proposal Berhasil DiHapus');
         return redirect()->route('sent.proposal');
     }
 
