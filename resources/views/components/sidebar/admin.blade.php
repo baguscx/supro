@@ -73,12 +73,25 @@
 
           <div class="menu-inner-shadow"></div>
 
+
           <ul class="menu-inner py-1">
+            <li class="menu-item {{request()->is('admin') ? 'active' : ''}}"">
+              <a href="{{route('dashboard')}}" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-home-variant-outline"></i>
+                <div data-i18n="Icons">Dashboard</div>
+              </a>
+            </li>
+            <li class="menu-item {{request()->is('users/*') ? 'active' : ''}}"">
+              <a href="{{route('list.users')}}" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi mdi-account-multiple-outline"></i>
+                <div data-i18n="Icons">Users</div>
+              </a>
+            </li>
             <!-- Dashboards -->
-            <li class="menu-item active open">
+            {{-- <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
-                <div data-i18n="Dashboards">Dashboards</div>
+                <div data-i18n="Dashboards">Proposal</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item {{request()->is('proposal/create') ? 'active' : ''}}">
@@ -91,12 +104,12 @@
                     <div data-i18n="Envelope">Draft</div>
                   </a>
                 </li>
-                <li class="menu-item {{request()->is('proposal/list') ? 'active' : ''}}">
-                  <a href="{{route('list.proposal')}}" class="menu-link">
+                <li class="menu-item {{request()->is('proposal/sent') ? 'active' : ''}}">
+                  <a href="{{route('sent.proposal')}}" class="menu-link">
                     <div data-i18n="Envelope">Proposal</div>
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> --}}
           </ul>
         </aside>

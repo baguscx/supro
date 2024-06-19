@@ -23,7 +23,7 @@
                                 <div class="col-md-6">
                                     <div class="form-floating form-floating-outline">
                                         <x-ui.text-input id="waktu_implementasi" name="waktu_implementasi" type="date"/>
-                                        <label for="waktu_implementasi">Waktu Implemantasi</label>
+                                        <label for="waktu_implementasi">Waktu Implementasi</label>
                                     </div>
                                 </div>
 

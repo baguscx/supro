@@ -44,8 +44,10 @@
                                             <span class="badge rounded-pill bg-label-success me-1">{{$proposal->status}}</span>
                                         @elseif($proposal->status == 'rejected')
                                             <span class="badge rounded-pill bg-label-danger me-1">{{$proposal->status}}</span>
+                                        @elseif($proposal->status == 'revision')
+                                            <span class="badge rounded-pill bg-label-primary me-1">{{$proposal->status}}</span>
                                         @endif
-                                    </>
+                                    </td>
                                     <td tyle="display: flex;">
                                         @if ($proposal->status == 'completed')
                                             <button style="border: none; margin: 10px; cursor: pointer; border-radius: 5px; display: flex; align-items: center; justify-content: center; background-color: #4CAF50; color: white;"
@@ -53,9 +55,34 @@
                                                     onmouseout="this.style.backgroundColor='#4CAF50';">
                                                     <a style="text-decoration: none; color: #fff;" href="{{route('cetak.surat', $proposal->id)}}"><span class="fas fa-print" style="width: 20px"></span></a>
                                             </button>
+                                        @elseif($proposal->status == 'revision')
+                                           <button data-toggle="modal" data-target="#noteModal" style="border: none; margin: 10px; cursor: pointer; border-radius: 5px; display: flex; align-items: center; justify-content: center; background-color: #FFA500; color: white;"
+                                                    onmouseover="this.style.backgroundColor='#FF8C00';"
+                                                    onmouseout="this.style.backgroundColor='#FFA500';">
+                                                    <a style="text-decoration: none; color: #fff;" ><span class="fa-solid fa-circle-info" style="width: 20px"></span></a>
+                                            </button>
                                         @endif
                                     </td>
                                 </tr>
+
+                                {{-- catatan --}}
+                                <div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="passwordModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="passwordModalLabel">Catatan Revisi</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>{{$proposal->note ?? ''}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- catatan --}}
+
                                 @endforeach
                             @endif
                             </tbody>
@@ -66,4 +93,7 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </x-app-layout>

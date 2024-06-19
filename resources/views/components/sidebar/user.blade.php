@@ -73,9 +73,22 @@
 
           <div class="menu-inner-shadow"></div>
 
+
           <ul class="menu-inner py-1">
+            <li class="menu-item {{request()->is('user') ? 'active' : ''}}"">
+              <a href="{{route('dashboard')}}" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-home-variant-outline"></i>
+                <div data-i18n="Icons">Dashboard</div>
+              </a>
+            </li>
+            <li class="menu-item {{request()->is('proposal/*') ? 'active' : ''}}"">
+              <a href="{{route('draft.proposal')}}" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-file-document-multiple-outline"></i>
+                <div data-i18n="Icons">Proposal</div>
+              </a>
+            </li>
             <!-- Dashboards -->
-            <li class="menu-item active open">
+            {{-- <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
                 <div data-i18n="Dashboards">Proposal</div>
@@ -97,6 +110,6 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> --}}
           </ul>
         </aside>

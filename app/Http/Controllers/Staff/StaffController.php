@@ -7,6 +7,7 @@ use App\Models\SuratProposal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class StaffController extends Controller
 {
@@ -20,7 +21,7 @@ class StaffController extends Controller
     }
 
     public function history(){
-        $proposals = SuratProposal::whereIn('status', ["rejected", "completed"])->get();
+        $proposals = SuratProposal::whereIn('status', ["rejected", "completed", "revision"])->get();
         return view('staff.history', compact('proposals'));
     }
 
@@ -35,10 +36,23 @@ class StaffController extends Controller
         {
             $proposal = SuratProposal::find($id);
             $proposal->status = "completed";
+            $proposal->ttd = Auth::user()->name;
             $proposal->save();
         } else {
             return "salah";
         }
+
+        Alert::success('Sukses!', 'Proposal Berhasil Ditandatangani');
+        return redirect()->route('list.proposal');
+    }
+
+    public function revisi(Request $request, $id){
+        $proposal = SuratProposal::find($id);
+        $proposal->status = "revision";
+        $proposal->note = $request->note;
+        $proposal->save();
+
+        Alert::success('Sukses!', 'Proposal Berhasil untuk Direvisi');
         return redirect()->route('list.proposal');
     }
 
@@ -46,6 +60,8 @@ class StaffController extends Controller
         $proposal = SuratProposal::find($id);
         $proposal->status = "rejected";
         $proposal->save();
+
+        Alert::success('Sukses!', 'Proposal Berhasil Ditolak');
         return redirect()->route('list.proposal');
     }
 }

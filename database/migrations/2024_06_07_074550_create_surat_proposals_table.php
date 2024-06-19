@@ -48,6 +48,8 @@ return new class extends Migration
             $table->longText('strategi_penguatan')->nullable();
 
             $table->string('status')->nullable();
+            $table->string('ttd')->nullable();
+            $table->string('note')->nullable();
 
             $table->timestamps();
         });

@@ -49,7 +49,7 @@
             </div>
     </div>
 
-    <div class="col-md-12">
+    {{-- <div class="col-md-12">
             <div class="form-floating form-floating-outline">
                 <textarea class="form-control h-px-100" name="sumber_daya_khusus" placeholder="Sumber Daya">{{$proposal->sumber_daya_khusus ?? ''}}</textarea>
                 <label class="ps-4">Sumber Daya</label>
@@ -61,5 +61,5 @@
                 <textarea class="form-control h-px-100" name="strategi_keberlanjutan_khusus" placeholder="Strategi Keberlanjutan">{{$proposal->strategi_keberlanjutan_khusus ?? ''}}</textarea>
                 <label class="ps-4">Strategi Keberlanjutan</label>
             </div>
-    </div>
+    </div> --}}
 </div>

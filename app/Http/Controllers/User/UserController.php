@@ -23,6 +23,7 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+
             SuratProposal::create([
             'users_id' => Auth::user()->id,
             'judul_inovasi' => $request->judul_inovasi,
@@ -59,17 +60,18 @@ class UserController extends Controller
 
     public function sent(){
         $proposals = SuratProposal::where('users_id', Auth::user()->id)->whereIn('status', ['pending', 'rejected', 'completed'])->get();
-        return view('user.sent', compact('proposals'));
+return view('user.sent', compact('proposals'));
     }
 
     public function draft(){
-        $proposals = SuratProposal::where('users_id', Auth::user()->id)->where('status', 'draft')->get();
+        $proposals = SuratProposal::where('users_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+        // dd($proposals);
         return view('user.draft', compact('proposals'));
     }
 
     public function edit($id){
         $proposal = SuratProposal::find($id);
-        if($proposal->status == 'draft'){
+        if($proposal->status == 'draft' || $proposal->status == 'revision'){
             if($proposal->users_id != Auth::user()->id){
                 return abort(403);
             } else {
@@ -158,7 +160,7 @@ class UserController extends Controller
         ]);
 
         Alert::success('Sukses!', 'Proposal Berhasil DiKirim');
-        return redirect()->route('sent.proposal');
+        return redirect()->route('draft.proposal');
     }
 
     public function destroy($id){

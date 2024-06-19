@@ -1,3 +1,4 @@
+<title>Proposal | {{$surat->judul_inovasi}}</title>
 <style>
         body {
             font-family: Arial, sans-serif;
@@ -232,9 +233,13 @@
                     <img style="width: 20px" src="{{asset('assets/img/logo.png')}}" class="lego" alt="">
                     <img class="object-a" src="data:image/png;base64, {!! base64_encode(QrCode::size(100)->generate('http://127.0.0.1:8000/cek/surat/'.$surat->id)) !!} ">
                 </div>
+                <br>
+                <br>
+                <p style="margin-top: 20px;"><u><b>{{$surat->ttd}}</b></u></p>
+            @else
+                <br>
+                <br>
+                <p style="margin-top: 20px;"><u><b>_________________</b></u></p>
             @endif
-        <br>
-        <br>
-        <p style="margin-top: 20px;"><u><b>RISKY WAHYUNI, SH</b></u></p>
     </div>
 </div>

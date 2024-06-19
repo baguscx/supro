@@ -23,6 +23,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/proposal/show/{id}', [StaffController::class, 'show'])->name('show.proposal');
+    Route::get('/show_proposal/{id}', [SuratController::class, 'show_proposal'])->name('showy.proposal');
     Route::get('/cetak/{id}', [SuratController::class, 'cetak'])->name('cetak.surat');
     Route::get('/sp_inovator/{id}/download', [SuratController::class, 'sp_inovator'])->name('sp_inovator');
     Route::get('/sp_replikasi/{id}/download', [SuratController::class, 'sp_replikasi'])->name('sp_replikasi');
@@ -53,12 +54,17 @@ Route::middleware(['auth', 'role:staff'])->group(function () {
     Route::get('/proposal/history', [StaffController::class, 'history'])->name('history.proposal');
     Route::post('/proposal/tolak/{id}', [StaffController::class, 'tolak'])->name('tolak.proposal');
     Route::post('/proposal/ttd/{id}', [StaffController::class, 'ttd'])->name('ttd.proposal');
+    Route::post('/proposal/revisi/{id}', [StaffController::class, 'revisi'])->name('revisi.proposal');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/users/create', [AdminController::class, 'createUser'])->name('create.users');
+    Route::post('/users/create', [AdminController::class, 'store'])->name('store.users');
+    Route::get('/users/{id}/edit', [AdminController::class, 'edit'])->name('edit.users');
+    Route::put('/users/{id}/edit', [AdminController::class, 'update'])->name('update.users');
     Route::get('/users/list', [AdminController::class, 'listUser'])->name('list.users');
+    Route::delete('/users/{id}/delete', [AdminController::class, 'destroy'])->name('delete.users');
 });
 
 

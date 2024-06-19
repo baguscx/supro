@@ -5,7 +5,7 @@
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="py-3 mb-4">Proposal Inovasi</h4>
 
-        @if($proposal->status == "draft")
+        @if($proposal->status == "draft" || $proposal->status == "revision")
             <div class="row">
                 <div class="col-md-12">
                     <div class="card mb-4">
@@ -25,7 +25,7 @@
                                     <div class="col-md-6">
                                         <div class="form-floating form-floating-outline">
                                             <x-ui.text-input id="waktu_implementasi" name="waktu_implementasi" value="{{$proposal->waktu_implementasi}}" type="date" disabled/>
-                                            <label for="waktu_implementasi">Waktu Implemantasi</label>
+                                            <label for="waktu_implementasi">Waktu Implementasi</label>
                                         </div>
                                     </div>
 
@@ -128,7 +128,7 @@
                                     <div class="col-md-6">
                                         <div class="form-floating form-floating-outline">
                                             <x-ui.text-input id="waktu_implementasi" name="waktu_implementasi" value="{{$proposal->waktu_implementasi}}" type="date" disabled/>
-                                            <label for="waktu_implementasi">Waktu Implemantasi</label>
+                                            <label for="waktu_implementasi">Waktu Implementasi</label>
                                         </div>
                                     </div>
 

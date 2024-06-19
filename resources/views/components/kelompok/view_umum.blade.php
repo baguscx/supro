@@ -1,6 +1,5 @@
 
 @if($proposal->status == 'pending' || $proposal->status == 'completed')
-woiasu
     <div {{$attributes}} style="display: none;" class="row mt-2 gy-4">
         <div class="col-md-12">
             <small>Substansi Proposal : <strong>Kelompok UMUM</strong></small>
@@ -59,7 +58,7 @@ woiasu
                 </div>
         </div>
     </div>
-@elseif($proposal->status == 'draft')
+@elseif($proposal->status == 'draft' || $proposal->status == 'revision')
 
     <div {{$attributes}} style="display: none;" class="row mt-2 gy-4">
         <div class="col-md-12">

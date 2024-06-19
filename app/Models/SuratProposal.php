@@ -36,7 +36,9 @@ class SuratProposal extends Model
         'dampak',
         'penguatan',
         'strategi_penguatan',
-        'status'
+        'status',
+        'ttd',
+        'note'
         ];
 
     public function users(){

@@ -75,20 +75,26 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboards -->
+            <li class="menu-item {{request()->is('staff') ? 'active' : ''}}"">
+              <a href="{{route('dashboard')}}" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-home-variant-outline"></i>
+                <div data-i18n="Icons">Dashboard</div>
+              </a>
+            </li>
             <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
+                <i class="menu-icon tf-icons mdi mdi-file-document-multiple-outline"></i>
                 <div data-i18n="Dashboards">Proposal</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item {{request()->is('proposal/list') ? 'active' : ''}}">
                   <a href="{{route('list.proposal')}}" class="menu-link">
-                    <div data-i18n="Envelope">Belum Disetujui</div>
+                    <div data-i18n="Envelope">Belum Diverifikasi</div>
                   </a>
                 </li>
                 <li class="menu-item {{request()->is('proposal/history') ? 'active' : ''}}">
                   <a href="{{route('history.proposal')}}" class="menu-link">
-                    <div data-i18n="Envelope">Sudah disetujui</div>
+                    <div data-i18n="Envelope">Sudah Diverifikasi</div>
                   </a>
                 </li>
 
