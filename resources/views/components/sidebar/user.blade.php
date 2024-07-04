@@ -63,7 +63,7 @@
                   </svg>
                 </span>
               </span>
-              <span class="app-brand-text demo menu-text fw-semibold ms-2">Materio</span>
+              <span class="app-brand-text demo menu-text fw-semibold ms-2">Proposal</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -75,12 +75,12 @@
 
 
           <ul class="menu-inner py-1">
-            <li class="menu-item {{request()->is('user') ? 'active' : ''}}"">
+            {{-- <li class="menu-item {{request()->is('user') ? 'active' : ''}}"">
               <a href="{{route('dashboard')}}" class="menu-link">
                 <i class="menu-icon tf-icons mdi mdi-home-variant-outline"></i>
                 <div data-i18n="Icons">Dashboard</div>
               </a>
-            </li>
+            </li> --}}
             <li class="menu-item {{request()->is('proposal/*') ? 'active' : ''}}"">
               <a href="{{route('draft.proposal')}}" class="menu-link">
                 <i class="menu-icon tf-icons mdi mdi-file-document-multiple-outline"></i>

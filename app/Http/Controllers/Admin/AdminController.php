@@ -11,7 +11,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 class AdminController extends Controller
 {
     public function dashboard(){
-        return view("admin.index");
+        return redirect(route('list.users'));
+        // return view("admin.index");
     }
 
     public function createUser(){

@@ -12,7 +12,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 class StaffController extends Controller
 {
     public function dashboard(){
-        return view('staff.index');
+        return redirect(route('list.proposal'));
+        // return view('staff.index');
     }
 
     public function list(){

@@ -8,11 +8,11 @@
                       document.write(new Date().getFullYear());
                     </script>
                     , made with <span class="text-danger"><i class="tf-icons mdi mdi-heart"></i></span> by
-                    <a href="https://themeselection.com" target="_blank" class="footer-link fw-medium"
-                      >ThemeSelection</a
+                    <a href="#" target="_blank" class="footer-link fw-medium"
+                      >Kurniawan</a
                     >
                   </div>
-                  <div class="d-none d-lg-inline-block">
+                  {{-- <div class="d-none d-lg-inline-block">
                     <a href="https://themeselection.com/license/" class="footer-link me-3" target="_blank">License</a>
                     <a href="https://themeselection.com/" target="_blank" class="footer-link me-3">More Themes</a>
 
@@ -29,7 +29,7 @@
                       class="footer-link"
                       >Support</a
                     >
-                  </div>
+                  </div> --}}
                 </div>
               </div>
             </footer>

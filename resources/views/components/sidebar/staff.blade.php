@@ -63,7 +63,7 @@
                   </svg>
                 </span>
               </span>
-              <span class="app-brand-text demo menu-text fw-semibold ms-2">Materio</span>
+              <span class="app-brand-text demo menu-text fw-semibold ms-2">Proposal</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -75,12 +75,12 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboards -->
-            <li class="menu-item {{request()->is('staff') ? 'active' : ''}}"">
+            {{-- <li class="menu-item {{request()->is('staff') ? 'active' : ''}}"">
               <a href="{{route('dashboard')}}" class="menu-link">
                 <i class="menu-icon tf-icons mdi mdi-home-variant-outline"></i>
                 <div data-i18n="Icons">Dashboard</div>
               </a>
-            </li>
+            </li> --}}
             <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons mdi mdi-file-document-multiple-outline"></i>

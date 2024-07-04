@@ -14,7 +14,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 class UserController extends Controller
 {
     public function dashboard(){
-        return view('user.index');
+        return redirect(route('draft.proposal'));
+        // return view('user.index');
     }
 
     public function create(){
