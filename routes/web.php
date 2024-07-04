@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/detail_proposal/{id}', [SuratController::class, 'detail_proposal'])->name('detail.proposal');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {

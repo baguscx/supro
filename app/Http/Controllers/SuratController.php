@@ -51,4 +51,10 @@ class SuratController extends Controller
         $surat = SuratProposal::find($id);
         return response()->download(storage_path('app/public/'.$surat->sp_replikasi));
     }
+
+    public function detail_proposal($id){
+        $surat = SuratProposal::find($id);
+        $user = User::find($surat->users_id);
+        return view('components.detail_proposal', compact('surat', 'user'));
+    }
 }

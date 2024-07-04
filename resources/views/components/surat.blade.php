@@ -231,7 +231,7 @@
             @if ($surat->status == "completed")
                 <div class="qr-container">
                     <img style="width: 20px" src="{{asset('assets/img/logo.png')}}" class="lego" alt="">
-                    <img class="object-a" src="data:image/png;base64, {!! base64_encode(QrCode::size(100)->generate('http://127.0.0.1:8000/cek/surat/'.$surat->id)) !!} ">
+                    <img class="object-a" src="data:image/png;base64, {!! base64_encode(QrCode::size(100)->generate('http://supro.test/detail_proposal/'.$surat->id)) !!} ">
                 </div>
                 <br>
                 <br>
