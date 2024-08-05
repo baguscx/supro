@@ -29,7 +29,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-floating form-floating-outline">
-                                        <select id="kelompok_inovasi" name="kelompok_inovasi" class="form-select form-select-lg"  onchange="showCard(this.value)" >
+                                        <select id="kelompok_inovasi" name="kelompok_inovasi" class="form-select form-select-lg" onchange="showCard(this.value)" >
                                             <option>----------------Kelompok Inovasi----------------</option>
                                             <option value="Kelompok Umum">Kelompok Umum</option>
                                             <option value="Kelompok Khusus">Kelompok Khusus</option>

@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('users_id')->nullable(); // Gunakan nullable() jika kolom ini boleh kosong
             $table->foreign('users_id')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->string("phone")->nullable();
             $table->string("address")->nullable();
+            $table->string("kecamatan")->nullable();
+            $table->string("kota")->nullable();
             $table->timestamps();
         });
     }

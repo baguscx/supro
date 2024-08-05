@@ -85,11 +85,17 @@
                                                     <a style="text-decoration: none; color: #fff;" href="{{route('cetak.surat', $proposal->id)}}"><span class="fas fa-print" style="width: 20px"></span></a>
                                             </button>
                                         @elseif ($proposal->status == 'rejected')
-                                            <button style="border: none; margin-block: 10px; cursor: pointer; border-radius: 5px; display: flex; align-items: center; justify-content: center; background-color: #f44336; color: white;"
+                                            <button data-toggle="modal" data-target="#noteModal" style="border: none; margin-block: 10px; cursor: pointer; border-radius: 5px; display: flex; align-items: center; justify-content: center; background-color: #FFA500; color: white;"
+                                                    onmouseover="this.style.backgroundColor='#FF8C00';"
+                                                    onmouseout="this.style.backgroundColor='#FFA500';">
+                                                    <a style="text-decoration: none; color: #fff;" ><span class="fa-solid fa-circle-info" style="width: 20px"></span></a>
+                                            </button>
+
+                                            {{-- <button style="border: none; margin-block: 10px; cursor: pointer; border-radius: 5px; display: flex; align-items: center; justify-content: center; background-color: #f44336; color: white;"
                                                     onmouseover="this.style.backgroundColor='#e53935';"
                                                     onmouseout="this.style.backgroundColor='#f44336';">
                                                     <a style="text-decoration: none; color: #fff;" href="{{route('edit.proposal', $proposal->id)}}"><span class="fas fa-edit" style="width: 20px"></span></a>
-                                            </button>
+                                            </button> --}}
                                         @elseif ($proposal->status == 'revision')
                                            <button data-toggle="modal" data-target="#noteModal" style="border: none; margin-block: 10px; cursor: pointer; border-radius: 5px; display: flex; align-items: center; justify-content: center; background-color: #FFA500; color: white;"
                                                     onmouseover="this.style.backgroundColor='#FF8C00';"
@@ -111,7 +117,7 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="passwordModalLabel">Catatan Revisi</h5>
+                                                <h5 class="modal-title" id="passwordModalLabel">Catatan</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>

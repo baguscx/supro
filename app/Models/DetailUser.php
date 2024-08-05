@@ -12,6 +12,9 @@ class DetailUser extends Model
     protected $fillable = [
         'users_id',
         'address',
+        'phone',
+        'kecamatan',
+        'kota',
     ];
 
     public function users(){

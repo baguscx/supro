@@ -19,11 +19,17 @@
                             <div class="container">
                                 <div class="row justify-content-center">
                                     <button data-toggle="modal" data-target="#passwordModal" class="btn btn-primary btn-block mb-2">Tanda Tangani</button>
-                                    <button data-toggle="modal" data-target="#noteModal" class="btn btn-info btn-block mb-2">Revisi</button>
-                                    <form style="padding:0;" action="{{route('tolak.proposal', $proposal->id)}}" method="post">
+                                    <button onclick="showCard()" name="revisi" id="revisi" class="btn btn-info btn-block mb-2">Revisi</button>
+                                    <form style="display: none;" name="revisi-form" id="revisi-form" action="{{route('revisi.proposal', $proposal->id)}}" method="POST">
                                         @csrf
-                                        <button style="width:100%" onclick="return confirm('Apa anda yakin ingin menolak proposal?')" class="btn btn-danger btn-block">Tolak</button>
+                                        <div class="form-group">
+                                            <textarea name="note" class="form-control mb-1" id="noteInput" cols="30" rows="10" placeholder="Masukkan Catatan"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-sm btn-success mb-2" >Kirim</button>
+                                        </div>
                                     </form>
+                                    <button data-toggle="modal" data-target="#noteModal" class="btn btn-danger btn-block mb-2">Tolak</button>
                                 </div>
                             </div>
                         </div>
@@ -65,13 +71,13 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="passwordModalLabel">Catatan Revisi</h5>
+                                <h5 class="modal-title" id="passwordModalLabel">Catatan Tolak</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="{{route('revisi.proposal', $proposal->id)}}" method="POST">
+                                <form action="{{route('tolak.proposal', $proposal->id)}}" method="POST">
                                     @csrf
                                     <div class="form-group">
                                         <textarea name="note" class="form-control" id="noteInput" cols="30" rows="10" placeholder="Masukkan Catatan"></textarea>                                    </div>
@@ -92,4 +98,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function showCard() {
+        var revisiForm = document.getElementById("revisi-form");
+        var revisiButton = document.getElementById("revisi");
+
+        // Toggle the display of the revisi-form
+        revisiForm.style.display = revisiForm.style.display === "none" ? "block" : "none";
+
+        // Change the text of the revisi button based on the form's display
+        revisiButton.innerText = revisiForm.style.display === "none" ? "Revisi" : "Batal";
+    }
+</script>
+
 </x-app-layout>

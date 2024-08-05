@@ -57,9 +57,10 @@ class StaffController extends Controller
         return redirect()->route('list.proposal');
     }
 
-    public function tolak($id){
+    public function tolak(Request $request, $id){
         $proposal = SuratProposal::find($id);
         $proposal->status = "rejected";
+        $proposal->note = $request->note;
         $proposal->save();
 
         Alert::success('Sukses!', 'Proposal Berhasil Ditolak');

@@ -105,7 +105,8 @@
         <div class="kop">
             <h2>PEMERINTAH KABUPATEN PASURUAN</h2>
             <h1>{{$user->name}}</h1>
-            <p class="hp">{{$user->detail_users->address   }}</p>
+            <p class="hp">{{$user->detail_users->address}}, {{$user->detail_users->kecamatan}}, {{$user->detail_users->kota}}</p>
+            <p class="hp">Telp. {{$user->detail_users->phone}}, {{$user->detail_users->email}}</p>
         </div>
     </div>
     <hr class="line"/>
