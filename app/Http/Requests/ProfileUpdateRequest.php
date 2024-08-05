@@ -21,6 +21,7 @@ class ProfileUpdateRequest extends FormRequest
             'address' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
             'kecamatan' => ['required', 'string', 'max:255'],
+            'kota' => ['required', 'string', 'max:255'],
         ];
     }
 }

@@ -38,19 +38,65 @@
                                 <div class="form-floating form-floating-outline">
                                     <select id="role" name="role" class="form-select form-select-lg"  onchange="showCard(this.value)" >
                                         <option>----------------Role----------------</option>
+                                        @if (request()->is('users/create'))
+                                        <option value="user">User</option>
+                                        <option value="staff">Verifikator</option>
+                                        <option value="admin">Admin</option>
+                                        @else
                                         <option {{$user->hasRole('user') ? 'selected' : '' }} value="user">User</option>
                                         <option {{$user->hasRole('staff') ? 'selected' : '' }} value="staff">Verifikator</option>
                                         <option {{$user->hasRole('admin') ? 'selected' : '' }} value="admin">Admin</option>
+                                        @endif
                                     </select>
                                     <label for="role">Role</label>
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-floating form-floating-outline">
-                                    <textarea class="form-control h-px-100" name="address" placeholder="Address">{{old('email', $user->detail_users ?? '' ? $user->detail_users->address : '' ?? '' )}}</textarea>
-                                    <label class="ps-4">Address</label>
+                                    @if (request()->is('users/create'))
+                                    <input class="form-control" type="text" id="phone" name="phone" value="{{old('phone')}}" required>
+                                    @else
+                                    <input class="form-control" type="text" id="phone" name="phone" value="{{old('phone', $user->detail_users ? $user->detail_users->phone : '')}}" required>
+                                    @endif
+                                    <label for="phone">Phone</label>
+                                    <x-input-error class="mt-2" :messages="$errors->get('phone')" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline">
+                                    @if (request()->is('users/create'))
+                                    <textarea class="form-control h-px-100" name="address" placeholder="Address">{{old('address')}}</textarea>
+                                    @else
+                                    <textarea class="form-control h-px-100" name="address" placeholder="Address">{{old('address', $user->detail_users ? $user->detail_users->address : '' )}}</textarea>
+                                    @endif
+                                    <label for="address">Address</label>
                                     <x-input-error class="mt-2" :messages="$errors->get('email')" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline">
+                                    @if (request()->is('users/create'))
+                                    <input class="form-control" type="text" id="kecamatan" name="kecamatan" value="{{old('kecamatan')}}" required>
+                                    @else
+                                    <input class="form-control" type="text" id="kecamatan" name="kecamatan" value="{{old('kecamatan', $user->detail_users ? $user->detail_users->kecamatan : '')}}" required>
+                                    @endif
+                                    <label for="kecamatan">Kecamatan</label>
+                                    <x-input-error class="mt-2" :messages="$errors->get('kecamatan')" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline">
+                                    @if (request()->is('users/create'))
+                                    <input class="form-control" type="text" id="kota" name="kota" value="{{old('kota')}}" required>
+                                    @else
+                                    <input class="form-control" type="text" id="kota" name="kota" value="{{old('kota', $user->detail_users ? $user->detail_users->kota : '')}}" required>
+                                    @endif
+                                    <label for="kota">Kab/Kota</label>
+                                    <x-input-error class="mt-2" :messages="$errors->get('kota')" />
                                 </div>
                             </div>
                         </div>

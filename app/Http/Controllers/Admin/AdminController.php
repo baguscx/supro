@@ -16,6 +16,7 @@ class AdminController extends Controller
     }
 
     public function createUser(){
+
         $page = [
             'title' => 'Create User',
             'button' => 'Create User',
@@ -34,7 +35,10 @@ class AdminController extends Controller
         ]);
         DetailUser::create([
             'users_id' => $user->id,
-            'address' => $request->address
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'kecamatan' => $request->kecamatan,
+            'kota' => $request->kota,
         ]);
         $user->assignRole($request->role);
 
@@ -62,7 +66,10 @@ class AdminController extends Controller
             'password' => bcrypt($request->password)
         ]);
         DetailUser::where('users_id', $id)->update([
-            'address' => $request->address
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'kecamatan' => $request->kecamatan,
+            'kota' => $request->kota,
         ]);
         $user->syncRoles($request->role);
 
