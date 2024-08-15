@@ -54,7 +54,7 @@
                                             <option value="Penegakan hukum">Penegakan hukum</option>
                                             <option value="Ketahanan bencana">Ketahanan bencana</option>
                                         </select>
-                                        <label for="kategori_inovasi">Kelompok Inovasi</label>
+                                        <label for="kategori_inovasi">Kategori Inovasi</label>
                                     </div>
                                 </div>
 
