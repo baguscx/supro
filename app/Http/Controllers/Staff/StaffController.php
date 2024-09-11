@@ -40,7 +40,8 @@ class StaffController extends Controller
             $proposal->ttd = Auth::user()->name;
             $proposal->save();
         } else {
-            return "salah";
+            Alert::error('Salah!', 'Password Salah');
+            return redirect()->route('list.proposal');
         }
 
         Alert::success('Sukses!', 'Proposal Berhasil Ditandatangani');

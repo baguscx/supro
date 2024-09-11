@@ -186,7 +186,7 @@ return view('user.sent', compact('proposals'));
         $proposal->delete();
 
         Alert::success('Sukses!', 'Proposal Berhasil DiHapus');
-        return redirect()->route('sent.proposal');
+        return redirect()->route('draft.proposal');
     }
 
     public function dinovator($id){
@@ -202,4 +202,5 @@ return view('user.sent', compact('proposals'));
         // Unduh berkas menggunakan response()->download()
         return response()->download(storage_path('app/public/' . $proposal->sp_replikasi));
     }
+
 }

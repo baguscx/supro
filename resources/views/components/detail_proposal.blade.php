@@ -72,7 +72,7 @@
                         <p>Kelompok : {{$surat->kelompok_inovasi}}</p>
                         <p>Proposal ini telah disetujui oleh : {{$surat->ttd ?? ''}}</p>
 
-                        <iframe src="http://supro.test/cetak/{{$surat->id}}" style="width:100%; height:600px;" frameborder="0"></iframe>
+                        <iframe src="{{ url('/cetak/'.$surat->id) }}" style="width:100%; height:600px;" frameborder="0"></iframe>
                     </div>
                 </div>
                 <div class="layout-demo-info">

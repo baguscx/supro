@@ -2,49 +2,49 @@
     <div class="col-md-12">
         <small>Substansi Proposal : <strong>Kelompok KHUSUS</strong></small>
             <div class="mt-3 form-floating form-floating-outline">
-                <textarea class="form-control h-px-100" name="ringkasan_khusus" placeholder="Ringkasan">{{$proposal->ringkasan_khusus ?? ''}}</textarea>
+                <textarea class="form-control h-px-100" name="ringkasan_khusus" placeholder="Ringkasan" required>{{$proposal->ringkasan_khusus ?? ''}}</textarea>
                 <label class="ps-4">Ringkasan</label>
             </div>
     </div>
 
     <div class="col-md-12">
             <div class="form-floating form-floating-outline">
-                <textarea class="form-control h-px-100" name="deskripsi_awal" placeholder="Deskripsi Awal Inovasi">{{$proposal->deskripsi_awal ?? ''}}</textarea>
+                <textarea class="form-control h-px-100" name="deskripsi_awal" placeholder="Deskripsi Awal Inovasi" required>{{$proposal->deskripsi_awal ?? ''}}</textarea>
                 <label class="ps-4">Deskripsi Awal Inovasi</label>
             </div>
     </div>
 
     <div class="col-md-12">
             <div class="form-floating form-floating-outline">
-                <textarea class="form-control h-px-100" name="pembaruan" placeholder="Pembaruan / Peningkatan Inovasi">{{$proposal->pembaruan ?? ''}}</textarea>
+                <textarea class="form-control h-px-100" name="pembaruan" placeholder="Pembaruan / Peningkatan Inovasi" required>{{$proposal->pembaruan ?? ''}}</textarea>
                 <label class="ps-4">Pembaruan / Peningkatan Inovasi</label>
             </div>
     </div>
 
     <div class="col-md-12">
             <div class="form-floating form-floating-outline">
-                <textarea class="form-control h-px-100" name="dampak" placeholder="Dampak">{{$proposal->dampak ?? ''}}</textarea>
+                <textarea class="form-control h-px-100" name="dampak" placeholder="Dampak" required>{{$proposal->dampak ?? ''}}</textarea>
                 <label class="ps-4">Dampak</label>
             </div>
     </div>
 
     <div class="col-md-12">
             <div class="form-floating form-floating-outline">
-                <textarea class="form-control h-px-100" name="adaptabilitas_khusus" placeholder="Adaptabilitas">{{$proposal->adaptabilitas_khusus ?? ''}}</textarea>
+                <textarea class="form-control h-px-100" name="adaptabilitas_khusus" placeholder="Adaptabilitas" required>{{$proposal->adaptabilitas_khusus ?? ''}}</textarea>
                 <label class="ps-4">Adaptabilitas</label>
             </div>
     </div>
 
     <div class="col-md-12">
         <div class="form-floating form-floating-outline">
-            <textarea class="form-control h-px-100" name="penguatan" placeholder="Penguatan Sumber Daya">{{$proposal->penguatan ?? ''}}</textarea>
+            <textarea class="form-control h-px-100" name="penguatan" placeholder="Penguatan Sumber Daya" required>{{$proposal->penguatan ?? ''}}</textarea>
             <label class="ps-4">Penguatan Sumber Daya</label>
         </div>
     </div>
 
     <div class="col-md-12">
             <div class="form-floating form-floating-outline">
-                <textarea class="form-control h-px-100" name="strategi_penguatan" placeholder="Strategi Penguatan Keberlanjutan">{{$proposal->strategi_penguatan ?? ''}}</textarea>
+                <textarea class="form-control h-px-100" name="strategi_penguatan" placeholder="Strategi Penguatan Keberlanjutan" required>{{$proposal->strategi_penguatan ?? ''}}</textarea>
                 <label class="ps-4">Strategi Penguatan Keberlanjutan</label>
             </div>
     </div>

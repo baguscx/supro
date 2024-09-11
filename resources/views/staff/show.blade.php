@@ -7,7 +7,7 @@
                 <div class="col-md-9">
                     <div class="card mb-4">
                         <div class="card-body pt-2 mt-1">
-                            <iframe src="http://supro.test/cetak/{{$proposal->id}}" style="width:100%; height:600px;" frameborder="0"></iframe>
+                            <iframe src="{{ url('/cetak/'.$proposal->id) }}" style="width:100%; height:600px;" frameborder="0"></iframe>
                         </div>
                     </div>
                 </div>

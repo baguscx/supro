@@ -15,7 +15,7 @@ class SuratController extends Controller
         $user = User::find($surat->users_id);
         if($surat->status == 'completed' || $surat->status == 'revision' || $surat->status == 'pending'){
             if($surat->users_id == auth()->user()->id || auth()->user()->hasRole('staff')){
-                $qrCodes = QrCode::size(120)->generate('https://localhost:8000/cek/surat/'.$surat->id);
+                $qrCodes = QrCode::size(120)->generate(url('/cek/surat/'.$surat->id));
                 $pdf = Pdf::loadView('components.surat', compact('surat', 'user', 'qrCodes'))->setPaper('a4', 'portrait');
                 return $pdf->stream();
             }else{
